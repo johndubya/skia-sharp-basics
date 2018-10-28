@@ -38,14 +38,14 @@ namespace SkiaSharpSandbox
 
                     canvas.Clear(SKColors.Red);
 
-                    //set up drawing tools
+                    //draw Xamagon
                     using (SKPaint paint = new SKPaint())
                     {
                         paint.IsAntialias = true;
                         paint.Color = new SKColor(0x2c, 0x3e, 0x50);
                         paint.StrokeCap = SKStrokeCap.Round;
 
-                        //create the Xamagon path
+                        //create the path
                         using (SKPath path = new SKPath())
                         {
                             path.MoveTo(71.4311121f, 56f);
@@ -75,9 +75,12 @@ namespace SkiaSharpSandbox
                         canvas.DrawBitmap(bitmap, SKRect.Create(30, 30, 200, 100));
                     }
 
-                    using (SKPaint textPaint = new SKPaint() { Color = SKColor.Parse("0000cc"), IsAntialias = true, TextSize = 24 })
+                    using (SKPaint textPaint = new SKPaint())
                     using (SKTypeface tf = SKTypeface.FromFamilyName("Courier New"))
                     {
+                        textPaint.Color = SKColor.Parse("0000cc");
+                        textPaint.IsAntialias = true;
+                        textPaint.TextSize = 24;
                         canvas.DrawText("Test", 30, 30, textPaint); //x and y are baseline
                     }
 
